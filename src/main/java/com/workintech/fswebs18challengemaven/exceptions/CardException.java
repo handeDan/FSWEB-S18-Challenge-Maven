@@ -8,7 +8,7 @@ public class CardException extends RuntimeException{
         super(message);
         this.status = status;
     }
-    public HttpStatus getHttpStatus() {
+    public HttpStatus getStatus() {
         return status;
     }
 }

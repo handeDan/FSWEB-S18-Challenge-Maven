@@ -209,7 +209,7 @@ public class MainTest {
         CardException exception = new CardException(expectedMessage, expectedStatus);
 
         assertEquals(expectedMessage, exception.getMessage(), "The exception message should match the expected value.");
-        assertEquals(expectedStatus, exception.getHttpStatus(), "The HttpStatus should match the expected value.");
+        assertEquals(expectedStatus, exception.getStatus(), "The HttpStatus should match the expected value.");
     }
 
     @Test
