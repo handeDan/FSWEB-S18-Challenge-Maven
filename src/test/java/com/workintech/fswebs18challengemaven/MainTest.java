@@ -107,6 +107,9 @@ public class MainTest {
         TypedQuery<Card> query = mock(TypedQuery.class);
         when(entityManager.createQuery(anyString(), eq(Card.class))).thenReturn(query);
 
+        // `setParameter`'ı mock'la, böylece `setParameter()` zincirleme çalışsın
+        when(query.setParameter(eq("color"), eq("HEARTH"))).thenReturn(query);
+
         Card card1 = new Card();
         card1.setColor(Color.HEARTH);
         card1.setType(Type.ACE);
@@ -156,6 +159,7 @@ public class MainTest {
     void testFindByValue() {
         TypedQuery<Card> query = mock(TypedQuery.class);
         when(entityManager.createQuery(anyString(), eq(Card.class))).thenReturn(query);
+        when(query.setParameter("value", 10)).thenReturn(query);
 
         Card card1 = new Card();
         card1.setColor(Color.HEARTH);
@@ -174,6 +178,7 @@ public class MainTest {
     void testFindByType() {
         TypedQuery<Card> query = mock(TypedQuery.class);
         when(entityManager.createQuery(anyString(), eq(Card.class))).thenReturn(query);
+        when(query.setParameter("type", "ACE")).thenReturn(query);
 
         Card card1 = new Card();
         card1.setColor(Color.HEARTH);
